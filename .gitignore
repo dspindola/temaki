@@ -37,3 +37,11 @@ yarn-error.*
 *.tsbuildinfo
 
 app-example
+.tamagui
+.expo
+.claude
+.cursor
+.env
+
+.bunfig.toml
+tamagui-web.css
