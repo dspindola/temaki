@@ -6,7 +6,7 @@ import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 import { Stack, Text, View } from "@tamagui/core";
 
-export default function HomeScreen() {
+export default function Index() {
   return (
     <View backgroundColor="$background" flex={1}>
       <ThemedView

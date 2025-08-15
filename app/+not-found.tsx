@@ -2,10 +2,11 @@ import { Link, Stack } from "expo-router";
 
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
+import { View } from "react-native";
 
 export default function NotFoundScreen() {
   return (
-    <>
+    <View>
       <Stack.Screen options={{ title: "Oops!" }} />
       <ThemedView
         flex={1}
@@ -19,6 +20,6 @@ export default function NotFoundScreen() {
           <ThemedText type="link">Go to home screen!</ThemedText>
         </Link>
       </ThemedView>
-    </>
+    </View>
   );
 }
