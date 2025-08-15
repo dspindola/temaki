@@ -10,9 +10,33 @@ function pascalToTrainCase(str: string): string {
     .replace(/^-/, '');
 }
 
+function snakeToTrainCase(str: string): string {
+  return str
+    .replace(/([A-Z])/g, '-$1')
+    .toLowerCase()
+    .replace(/^-/, '');
+}
+
+function camelToTrainCase(str: string): string {
+  return str
+    .replace(/([A-Z])/g, '-$1')
+    .toLowerCase()
+    .replace(/^-/, '');
+}
+
+function isSnakeCase(str: string): boolean {
+  return /^[a-z][a-z0-9]*$/.test(str);
+}
+
+function isCamelCase(str: string): boolean {
+  return /^[a-z][a-zA-Z0-9]*$/.test(str);
+}
+
 function isPascalCase(str: string): boolean {
   return /^[A-Z][a-zA-Z0-9]*$/.test(str);
 }
+
+
 
 function renameFilesRecursively(dir: string): void {
   const entries = readdirSync(dir);
@@ -34,13 +58,27 @@ function renameFilesRecursively(dir: string): void {
         console.log(`Renaming: ${entry} -> ${newName}`);
         renameSync(fullPath, newPath);
       }
+      if (isSnakeCase(nameWithoutExt)) {
+        const newName = snakeToTrainCase(nameWithoutExt) + ext;
+        const newPath = join(dirname(fullPath), newName);
+
+        console.log(`Renaming: ${entry} -> ${newName}`);
+        renameSync(fullPath, newPath);
+      }
+      if (isCamelCase(nameWithoutExt)) {
+        const newName = camelToTrainCase(nameWithoutExt) + ext;
+        const newPath = join(dirname(fullPath), newName);
+
+        console.log(`Renaming: ${entry} -> ${newName}`);
+        renameSync(fullPath, newPath);
+      }
     }
   }
 }
 
-const componentsDir = ['./components', './components/ui'];
+const componentsDir = ['./components', './components/ui', './hooks'];
 
-for await (const dir of componentsDir) {
+for (const dir of componentsDir) {
   try {
     console.log(`Renaming PascalCase files to train-case in ${dir}...`);
     renameFilesRecursively(dir);
