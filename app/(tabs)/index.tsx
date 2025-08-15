@@ -4,14 +4,15 @@ import { Platform } from "react-native";
 import { HelloWave } from "@/components/HelloWave";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import { Stack, Text, View } from "@tamagui/core";
 
 export default function HomeScreen() {
   return (
-    <Scro backgroundColor="$background" flex={1}>
+    <View backgroundColor="$background" flex={1}>
       <ThemedView
         padding="$4"
         backgroundColor="$blue4"
-        minHeight={200}
+        minHeight="$20"
         justifyContent="flex-end"
         position="relative"
       >
@@ -26,10 +27,12 @@ export default function HomeScreen() {
       </ThemedView>
 
       <ThemedView padding="$4" gap="$4">
-        <ThemedView flexDirection="row" alignItems="center" gap="$2">
-          <ThemedText type="title">Welcome!</ThemedText>
+        <Stack flexDirection="row" alignItems="center" gap="$2">
+          <Text color="$color" fontWeight="bold" fontSize="$8">
+            Welcome!
+          </Text>
           <HelloWave />
-        </ThemedView>
+        </Stack>
 
         <ThemedView gap="$2">
           <ThemedText type="subtitle">Step 1: Try it</ThemedText>
@@ -70,6 +73,6 @@ export default function HomeScreen() {
           </ThemedText>
         </ThemedView>
       </ThemedView>
-    </Scro>
+    </View>
   );
 }

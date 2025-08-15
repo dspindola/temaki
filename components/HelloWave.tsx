@@ -1,37 +1,41 @@
-import { useEffect } from 'react';
+import { Text } from "@tamagui/core";
+import { useEffect } from "react";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
   withSequence,
   withTiming,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 
-import { ThemedText } from '@/components/ThemedText';
-
-export function HelloWave() {
-  const rotationAnimation = useSharedValue(0);
+const useWaveAnimation = () => {
+  const value = useSharedValue(0);
 
   useEffect(() => {
-    rotationAnimation.value = withRepeat(
-      withSequence(withTiming(25, { duration: 150 }), withTiming(0, { duration: 150 })),
+    value.value = withRepeat(
+      withSequence(
+        withTiming(25, { duration: 150 }),
+        withTiming(0, { duration: 150 })
+      ),
       4 // Run the animation 4 times
     );
-  }, [rotationAnimation]);
+  }, [value]);
 
   const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ rotate: `${rotationAnimation.value}deg` }],
+    transform: [{ rotate: `${value.value}deg` }],
   }));
+
+  return animatedStyle;
+};
+
+export function HelloWave() {
+  const animatedStyle = useWaveAnimation();
 
   return (
     <Animated.View style={animatedStyle}>
-      <ThemedText 
-        fontSize="$7"
-        lineHeight="$8"
-        marginTop="$-1"
-      >
+      <Text fontSize="$7" lineHeight="$8" marginTop="$-1" color="$color">
         👋
-      </ThemedText>
+      </Text>
     </Animated.View>
   );
 }
