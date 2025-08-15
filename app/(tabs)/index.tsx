@@ -1,9 +1,9 @@
 import { Image } from "@tamagui/image";
 import { Platform } from "react-native";
 
-import { HelloWave } from "@/components/HelloWave";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
+import { HelloWave } from "@/components/hello-wave";
+import { ThemedText } from "@/components/themed-text";
+import { ThemedView } from "@/components/themed-view";
 import { Stack, Text, View } from "@tamagui/core";
 
 export default function HomeScreen() {

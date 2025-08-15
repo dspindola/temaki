@@ -1,13 +1,13 @@
-import { Link, Stack } from 'expo-router';
+import { Link, Stack } from "expo-router";
 
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { ThemedText } from "@/components/themed-text";
+import { ThemedView } from "@/components/themed-view";
 
 export default function NotFoundScreen() {
   return (
     <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
-      <ThemedView 
+      <Stack.Screen options={{ title: "Oops!" }} />
+      <ThemedView
         flex={1}
         alignItems="center"
         justifyContent="center"

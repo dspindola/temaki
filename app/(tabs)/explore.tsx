@@ -2,11 +2,11 @@ import { View } from "@tamagui/core";
 import { Image } from "@tamagui/image";
 import { Platform } from "react-native";
 
-import { Collapsible } from "@/components/Collapsible";
-import { ExternalLink } from "@/components/ExternalLink";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
-import { IconSymbol } from "@/components/ui/IconSymbol";
+import { Collapsible } from "@/components/collapsible";
+import { ExternalLink } from "@/components/external-link";
+import { ThemedText } from "@/components/themed-text";
+import { ThemedView } from "@/components/themed-view";
+import { IconSymbol } from "@/components/ui/icon-symbol";
 
 export default function TabTwoScreen() {
   return (
