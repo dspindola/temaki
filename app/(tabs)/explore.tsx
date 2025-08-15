@@ -1,4 +1,4 @@
-import { View } from "@tamagui/core";
+import { Text, View } from "@tamagui/core";
 import { Image } from "@tamagui/image";
 import { Platform } from "react-native";
 
@@ -7,6 +7,8 @@ import { ExternalLink } from "@/components/external-link";
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 import { IconSymbol } from "@/components/ui/icon-symbol";
+import { Button } from "@tamagui/button";
+import { router } from "expo-router";
 
 export default function TabTwoScreen() {
   return (
@@ -24,6 +26,14 @@ export default function TabTwoScreen() {
           name="chevron.left.forwardslash.chevron.right"
         />
       </ThemedView>
+
+      <Button
+        onPress={() => {
+          router.push("/(settings)");
+        }}
+      >
+        <Text>Settings</Text>
+      </Button>
 
       <ThemedView padding="$4" gap="$4">
         <ThemedView flexDirection="row" gap="$2">
